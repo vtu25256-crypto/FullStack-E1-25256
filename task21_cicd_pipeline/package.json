@@ -1,0 +1,13 @@
+{
+  "name": "banking-app",
+  "version": "2.0.0",
+  "description": "Demo project for Git branching and CI/CD",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Running tests...\" && exit 0",
+    "build": "echo \"Building project...\" && exit 0",
+    "deploy": "echo \"Deploying to production...\" && exit 0"
+  },
+  "author": "",
+  "license": "ISC"
+}

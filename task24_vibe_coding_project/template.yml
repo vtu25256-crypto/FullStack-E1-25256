@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Serverless Contact Form API
+
+Resources:
+  ContactApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.handler # Assumes use of aws-serverless-express
+      Runtime: nodejs18.x
+      CodeUri: ./
+      MemorySize: 128
+      Timeout: 10
+      Events:
+        ProxyApi:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+
+Outputs:
+  ApiUrl:
+    Description: "API Gateway endpoint URL"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
